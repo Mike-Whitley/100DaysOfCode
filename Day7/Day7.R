@@ -4,9 +4,18 @@ install.packages('ISLR') #need the package to use
 library(ISLR)
 names(Smarket)
 
-#Starting with LDA 
-#https://www.youtube.com/watch?v=azXCzI57Yfc video on what it is 
-#LDA creates a new axis and projects the values on to that axis in a way to reduces the seperation between the catagories
+#Looking at logistic regression
+#what is logistic regression?
+#Logistic regression is a special case of Generalised Linear Modelling (GLM) using the Binomial distribution family.
+#video on log regression https://www.youtube.com/watch?v=yIYKR4sgzI8
+#logistic regression predicts if something is true of false 1 or 0
+#logistic regression uses maximun likelikehood
+
+#when is logistic regression used?
+#it is used when the Y value in the graph is categorical in nature i.e yes/no and dependent on the X value
+# example inlcude medicine and credit scoring for making a yes no decision
+
+
 
 dim(Smarket) #can see it has 1250 rows and 9 columns 
 summary(Smarket) #brief look at what the data looks like
@@ -33,12 +42,6 @@ plot(Volume, Year)
 #By plotting the data wesee that 
 #Volumeis increasing over time. In other words, the average numberof shares traded daily increased from 2001 to 2005
 
-
-#Logistic Regression
-#Logistic regression is a special case of Generalised Linear Modelling (GLM) using the Binomial distribution family.
-#video on log regression https://www.youtube.com/watch?v=yIYKR4sgzI8
-#logistic regression predicts if something is true of false 1 or 0 
-#logistic regression uses maximun likelikehood 
 
 #we will fit a logistic regression model in order to predict Direction using Lag1 through Lag5 and Volume
 glm.fits=glm(Direction~Lag1+Lag2+Lag3+Lag4+Lag5+Volume, data=Smarket, family=binomial) #GLM is the type and we use family=binomial to say logitic regression 
