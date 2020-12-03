@@ -59,7 +59,7 @@ table(knn.pred,test.Y)
 4/15 #26.6%
 
 #need to work on how to visualize this and add new points
-
+##
 
 
 
