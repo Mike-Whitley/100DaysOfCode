@@ -58,7 +58,7 @@ knn.pred=knn(train.X,test.X,train.Y,k=5)
 table(knn.pred,test.Y)
 4/15 #26.6%
 
-
+#need to work on how to visualize this and add new points
 
 
 
