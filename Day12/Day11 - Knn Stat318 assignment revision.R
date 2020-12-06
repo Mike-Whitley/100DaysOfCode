@@ -12,3 +12,5 @@
 #(c)  Plot the training data, testing data and the best kNN model in the same figure.
 #(The points() function is useful to plot the kNN model because it is discontinuous.)
 #(d)  Describe the bias-variance trade-off for kNN regression.
+
+
