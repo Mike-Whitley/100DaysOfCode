@@ -13,4 +13,57 @@
 #(The points() function is useful to plot the kNN model because it is discontinuous.)
 #(d)  Describe the bias-variance trade-off for kNN regression.
 
+test = read.csv("C:/Users/Mike/Desktop/100DaysOfCode/Day12/AutoTest.csv")
+train  = read.csv("C:/Users/Mike/Desktop/100DaysOfCode/Day12/AutoTrain.csv")
+
+
+attach(autotrain)
+summary(mpg)
+summary(horsepower)
+## STAT318/462 kNN regression function
+
+k =c(2,5,10,20,30,50,100);
+test.error =numeric(7);
+train.error =numeric(7);
+kNN <- function(k,x.train,y.train,x.pred) {
+  
+## Initialize:
+n.pred <- length(x.pred);		y.pred <- numeric(n.pred)
+
+## Main Loop
+for (i in 1:n.pred){
+  d <- abs(x.train - x.pred[i])
+  dstar = d[order(d)[k]]
+  y.pred[i] <- mean(y.train[d <= dstar])
+}
+## Return the vector of predictions
+invisible(y.pred)
+}
+
+
+for (i in 1:7){
+  pred = kNN((k[i]),
+             train$horsepower,
+             train$mpg,
+             test$horsepower)
+  test.error[i] = mean((pred - test$mpg)^2)
+  pred = kNN(k[i],
+             train$horsepower,
+             train$mpg,
+             train$horsepower)
+  train.error[i] = mean((pred - train$mpg)^2)
+  
+}
+test.error
+train.error
+
+
+kNN.error =min(test.error)
+kNN.error
+
+kbest = k[which.min(test.error)]
+kbest
+
+
+
 
